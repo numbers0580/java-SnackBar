@@ -12,27 +12,6 @@ public class Main {
 		Snack s3 = new Snack("Chimichangas", 29, 3.50, 1);
 		Snack s4 = new Snack("Doritos", 21, 1.00, 1);
 		
-		/*
-		System.out.println("Tests below:");
-		System.out.println("1 Snickers");
-		System.out.println(s1.totalCost(1));
-		System.out.println("1 Twinkie");
-		System.out.println(s2.totalCost(1));
-		System.out.println("1 Chimichanga");
-		System.out.println(s3.totalCost(1));
-		System.out.println("1 Doritos");
-		System.out.println(s4.totalCost(1));
-		System.out.println("3 Snickers");
-		System.out.println(s1.totalCost(3));
-		System.out.println("7 Twinkies");
-		System.out.println(s2.totalCost(7));
-		System.out.println("5 Chimichangas");
-		System.out.println(s3.totalCost(5));
-		System.out.println("12 Doritos");
-		System.out.println(s4.totalCost(12));
-		*/
-		//The above tests were successful
-		
 		//Output c1 and cash
 		System.out.println(cust1);
 		//Output s4 and qty
@@ -103,6 +82,33 @@ public class Main {
 		System.out.println(cust2);
 		//decrease s3 by 3, output s3 and qty
 		System.out.println(s3);
+		
+		System.out.println("\nStretch Goals");
+		
+		VendingMachine machine1 = new VendingMachine("Food");
+		VendingMachine machine2 = new VendingMachine("Drink");
+		
+		// String name, int quantity, double cost, int vendingMachineId
+		Snack stretch[] = new Snack[5];
+		stretch[0] = new Snack("Chips", 36, 1.75, machine1.getId());
+		stretch[1] = new Snack("Chocolate Bar", 35, 1.00, machine1.getId());
+		stretch[2] = new Snack("Pretzel", 38, 2.00, machine1.getId());
+		stretch[3] = new Snack("Soda", 19, 2.50, machine2.getId());
+		stretch[4] = new Snack("Water", 20, 2.75, machine2.getId());
+		
+		for(int i = 0; i < stretch.length; i++) {
+			System.out.println('\n');
+			System.out.println("Snack: " + stretch[i].getName());
+			if(stretch[i].getVendingMachineId() == 1) {
+				System.out.println("Vending Machine: " + machine1.getName());
+			} else if(stretch[i].getVendingMachineId() == 2) {
+				System.out.println("Vending Machine: " + machine2.getName());
+			} else {
+				System.out.println("Vending Machine: Not Found");
+			}
+			System.out.println("Quantity: " + stretch[i].getQuantity());
+			System.out.println("Total Cost: $" + String.format("%.2f", stretch[i].totalCost(stretch[i].getQuantity())));
+		}
 	}
 	
 	public static void main(String[] args) {

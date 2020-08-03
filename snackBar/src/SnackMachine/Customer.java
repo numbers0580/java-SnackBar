@@ -17,7 +17,7 @@ public class Customer {
 	
 	@Override
 	public String toString() {
-		return name + "'s cash on hand is " + cashOnHand;
+		return name + "'s cash on hand is $" + String.format("%.2f", cashOnHand);
 	}
 	
 	// getters
